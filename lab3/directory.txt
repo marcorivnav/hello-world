@@ -1,0 +1,5 @@
+{"name": "Marco", "email": "A00354896@itesm.mx", "age": 27, "origin_country": "Mexico"}
+{"name": "Jorge", "email": "jorge@mail.mx", "age": 22, "origin_country": "Canada"}
+{"name": "Ana", "email": "ana@mail.mx", "age": 26, "origin_country": "USA"}
+{"name": "Elena", "email": "elena@mail.mx", "age": 31, "origin_country": "Spain"}
+{"name": "Marco", "email": "A00354896@mail.com", "age": 27, "origin_country": "Mexico"}
