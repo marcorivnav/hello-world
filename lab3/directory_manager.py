@@ -2,6 +2,7 @@ import json
 
 DIRECTORY_FILE = 'directory.txt'
 
+
 class DirectoryManager:
     """
     " Method to insert a new record into the directory file.
@@ -22,7 +23,7 @@ class DirectoryManager:
     "                       - email
     "                       - age
     "                       - origin_country
-    """    
+    """
     def delete_record(self, record):
         content = []
         with open(DIRECTORY_FILE, 'r') as directory_file:
@@ -30,18 +31,20 @@ class DirectoryManager:
                 # Remove the \n from read lines
                 line = line.replace("\n", "")
 
-                if (line != str(record).replace("'","\"")):
+                if (line != str(record).replace("'", "\"")):
                     content.append(line)
-                
+
         with open(DIRECTORY_FILE, "w") as directory_file:
             for line in content:
                 directory_file.write(line + "\n")
 
     """
     " Generic method to find a record by any given field
-    " @param    field_name      A string containing the name of the field to be compared
+    " @param    field_name      A string containing the name of the field
+    "                           to be compared
     " @param    value           The value to be compared
-    " @return                   If the record is found, the record dict is returned, Otherwise None is returned
+    " @return                   If the record is found, the record dict is
+    "                           returned, Otherwise None is returned
     """
     def find_record_by_field(self, field_name, value):
         with open(DIRECTORY_FILE, "r") as directory_file:
@@ -52,21 +55,24 @@ class DirectoryManager:
                 line = line.replace("\n", "")
 
                 # Convert the line to dict
-                line_dict = json.loads(line) 
+                line_dict = json.loads(line)
 
                 if (line_dict[field_name] == value):
                     found = True
                     return line_dict
 
             if (not found):
-                print("Did not find the record with " + field_name + " " + value)
-        
+                print(
+                    "Did not find the record with " +
+                    field_name + " " + value)
+
         return None
 
     """
     " Short method to find a record by email
     " @param    email       The value of the email to search
-    " @return               If the record is found, the record dict is returned, Otherwise None is returned
+    " @return               If the record is found, the record
+    "                       dict is returned, Otherwise None is returned
     """
     def find_record_by_email(self, email):
         return self.find_record_by_field("email", email)
@@ -74,7 +80,8 @@ class DirectoryManager:
     """
     " Short method to find a record by age
     " @param    age         The value of the age to search
-    " @return               If the record is found, the record dict is returned, Otherwise None is returned
+    " @return               If the record is found, the record dict is
+    "                       returned, Otherwise None is returned
     """
     def find_record_by_age(self, age):
         return self.find_record_by_field("age", age)
@@ -91,7 +98,7 @@ class DirectoryManager:
                 line = line.replace("\n", "")
 
                 # Convert the line to dict
-                line_dict = json.loads(line) 
+                line_dict = json.loads(line)
 
                 records_list.append(line_dict)
 
@@ -100,7 +107,8 @@ class DirectoryManager:
     """
     " Method to find a record
     " @param    record      The value of the age to search
-    " @return               If the record is found, the record dict is returned, Otherwise None is returned
+    " @return               If the record is found, the record
+    "                       dict is returned, Otherwise None is returned
     """
     def find_record(self, record):
         with open(DIRECTORY_FILE, 'r') as directory_file:
@@ -108,6 +116,6 @@ class DirectoryManager:
                 # Remove the \n from read lines
                 line = line.replace("\n", "")
 
-                if (line == str(record).replace("'","\"")):
+                if (line == str(record).replace("'", "\"")):
                     return record
         return None

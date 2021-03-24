@@ -1,6 +1,7 @@
 import unittest
 import math
 
+
 class MathCeilTest(unittest.TestCase):
     def test_regular_case(self):
         self.assertEqual(math.ceil(6.11), 7)
@@ -8,7 +9,7 @@ class MathCeilTest(unittest.TestCase):
     def test_far_value(self):
         self.assertEqual(math.ceil(0.000000000000000000000000000000001), 1)
 
-    def test_close_value(self):        
+    def test_close_value(self):
         self.assertEqual(math.ceil(1.999999999999999999999999999999999), 2)
 
     def test_negative_value(self):
@@ -35,6 +36,7 @@ class MathCeilTest(unittest.TestCase):
 
     def test_integer_argument(self):
         self.assertEqual(math.ceil(88), 88)
-        
+
+
 if __name__ == '__main__':
     unittest.main()
