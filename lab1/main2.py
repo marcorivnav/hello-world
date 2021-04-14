@@ -2,9 +2,9 @@ import sys
 import json
 
 # Verify at least 1 argument is provided
-argumentsCount = len(sys.argv)
+arguments_count = len(sys.argv)
 
-if (argumentsCount < 2):
+if (arguments_count < 2):
     print("You should provide an integer number as an argument")
 else:
     # Get the argument
@@ -12,14 +12,14 @@ else:
 
     # Assert it is an integer number
     try:
-        userNumber = int(argument)
+        user_number = int(argument)
 
         # Binary conversion
-        if (userNumber == 0):
+        if (user_number == 0):
             print("Binary: 0")
         else:
             base = 2
-            accumulator = userNumber
+            accumulator = user_number
             result = ""
 
             while (accumulator > 0):
@@ -30,12 +30,12 @@ else:
             print("Binary: %s" % result)
 
         # Hexa conversion
-        if (userNumber == 0):
+        if (user_number == 0):
             print("Hexadecimal: 0")
         else:
             HEXA_VALUES = json.loads('{"10": "A", "11": "B", "12": "C", "13": "D", "14": "E", "15": "F"}')
             base = 16
-            accumulator = userNumber
+            accumulator = user_number
             result = ""
 
             while (accumulator > 0):

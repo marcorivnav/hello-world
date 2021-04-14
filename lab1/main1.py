@@ -1,39 +1,39 @@
 from random import randint
 
-randomNumber = randint(1, 30)
+random_number = randint(1, 30)
 
-userInput = None
-userInteger = None
+user_input = None
+user_integer = None
 attempts = 0
 
 # First check (do-while does not exist)
 try:
-    userInput = input("Guess the number: ")
-    userInteger = int(userInput)
+    user_input = input("Guess the number: ")
+    user_integer = int(user_input)
     attempts += 1
 
-    if (randomNumber == userInteger):
+    if (random_number == user_integer):
         print("Awesome! You guessed the number in the first try!")
-except ValueError as e:
-    if (userInput != "exit"):
+except ValueError:
+    if (user_input != "exit"):
         print("The input has to be a number")
 
 # Loop for next attempts
-while (randomNumber != userInteger and userInput != "exit"):
-    if (userInteger != None and randomNumber > userInteger):
-        print("The target is greater than " + str(userInteger))
-    elif (userInteger != None and randomNumber < userInteger):
-        print("The target is less than " + str(userInteger))
+while (random_number != user_integer and user_input != "exit"):
+    if (user_integer is not None and random_number > user_integer):
+        print("The target is greater than " + str(user_integer))
+    elif (user_integer is not None and random_number < user_integer):
+        print("The target is less than " + str(user_integer))
 
     try:
-        userInput = input("Try again: ")
+        user_input = input("Try again: ")
         attempts += 1
-        userInteger = int(userInput)
-    except ValueError as e:
-        if (userInput != "exit"):
+        user_integer = int(user_input)
+    except ValueError:
+        if (user_input != "exit"):
             print("The input has to be a number")
 
-if (randomNumber == userInteger):
+if (random_number == user_integer):
     print("Correct!!")
 
 print("Number of attempts: " + str(attempts))

@@ -26,6 +26,7 @@ def calculate_profit(properties):
 
     return round(total_sales - total_cost)
 
+
 for dictionary in TEST_CASES:
     try:
         profit = calculate_profit(dictionary)

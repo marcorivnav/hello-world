@@ -24,15 +24,16 @@ def int_to_str(value):
             power += 1
 
         return result
-    else:
-        raise ValueError("Not an integer value")
+    
+    raise ValueError("Not an integer value")
 
 def str_to_int(value):
     base = 10
     
     if (isinstance(value, str) and value.isdigit()):
         # Split the string into individual characters
-        characters = [char for char in value]
+        #characters = [char for char in value]
+        characters = list(value)
         string_length = len(characters)
         accumulator = 0
 
@@ -41,8 +42,9 @@ def str_to_int(value):
             accumulator += numeric_value * (base**(string_length-i-1))
 
         return accumulator
-    else:
-        raise ValueError("Not a string value")
+    
+    raise ValueError("Not a string value")
+
 
 # Test the int_to_str conversion
 print("***INT_TO_STR CONVERSION***")
