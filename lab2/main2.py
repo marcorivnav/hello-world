@@ -1,3 +1,7 @@
+""""
+Calculate profit
+"""
+
 import numbers
 
 # Definition of test cases
@@ -13,13 +17,16 @@ DICTIONARY_9 = {"cost_price": 16.45, "sell_price": 17.95, "inventory": 800}
 DICTIONARY_10 = {"cost_price": "11", "sell_price": 15.93, "inventory": 50}
 
 TEST_CASES = [DICTIONARY_1, DICTIONARY_2, DICTIONARY_3, DICTIONARY_4, DICTIONARY_5,
-DICTIONARY_6, DICTIONARY_7, DICTIONARY_8, DICTIONARY_9, DICTIONARY_10]
+              DICTIONARY_6, DICTIONARY_7, DICTIONARY_8, DICTIONARY_9, DICTIONARY_10]
 
 def calculate_profit(properties):
-    # Validate the properties
-    assert(isinstance(properties["cost_price"], numbers.Number))
-    assert(isinstance(properties["sell_price"], numbers.Number))
-    assert(isinstance(properties["inventory"], numbers.Number))
+    """
+    Method to calculate the profit given the properties
+    """
+
+    assert isinstance(properties["cost_price"], numbers.Number)
+    assert isinstance(properties["sell_price"], numbers.Number)
+    assert isinstance(properties["inventory"], numbers.Number)
 
     total_cost = properties["cost_price"] * properties["inventory"]
     total_sales = properties["sell_price"] * properties["inventory"]
