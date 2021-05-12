@@ -1,44 +1,48 @@
+"""
+Guess number
+"""
+
 from random import randint
 
 random_number = randint(1, 30)
 
-user_input = None
-user_integer = None
-attempts = 0
+USER_INPUT = None
+USER_INTEGER = None
+ATTEMPTS = 0
 
 # First check (do-while does not exist)
 try:
-    user_input = input("Guess the number: ")
-    user_integer = int(user_input)
-    attempts += 1
+    USER_INPUT = input("Guess the number: ")
+    USER_INTEGER = int(USER_INPUT)
+    ATTEMPTS += 1
 
-    if (random_number == user_integer):
+    if random_number == USER_INTEGER:
         print("Awesome! You guessed the number in the first try!")
 except ValueError:
-    if (user_input != "exit"):
+    if USER_INPUT != "exit":
         print("The input has to be a number")
 
 # Loop for next attempts
-while (random_number != user_integer and user_input != "exit"):
-    if (user_integer is not None and random_number > user_integer):
-        print("The target is greater than " + str(user_integer))
-    elif (user_integer is not None and random_number < user_integer):
-        print("The target is less than " + str(user_integer))
+while (random_number != USER_INTEGER and USER_INPUT != "exit"):
+    if (USER_INTEGER is not None and random_number > USER_INTEGER):
+        print("The target is greater than " + str(USER_INTEGER))
+    elif (USER_INTEGER is not None and random_number < USER_INTEGER):
+        print("The target is less than " + str(USER_INTEGER))
 
     try:
-        user_input = input("Try again: ")
-        attempts += 1
-        user_integer = int(user_input)
+        USER_INPUT = input("Try again: ")
+        ATTEMPTS += 1
+        USER_INTEGER = int(USER_INPUT)
     except ValueError:
-        if (user_input != "exit"):
+        if USER_INPUT != "exit":
             print("The input has to be a number")
 
-if (random_number == user_integer):
+if random_number == USER_INTEGER:
     print("Correct!!")
 
-print("Number of attempts: " + str(attempts))
+print("Number of attempts: " + str(ATTEMPTS))
 
 # Flush the number of attempts to a file
 f = open("GuessingSteps.txt", "w")
-f.write("Numer of attempts: " + str(attempts))
+f.write("Numer of attempts: " + str(ATTEMPTS))
 f.close()
