@@ -1,1 +1,1 @@
-pylint lab1
+/usr/local/bin/pylint lab1
